@@ -2,7 +2,9 @@ package utils
 
 import (
 	"bufio"
+	"bytes"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -59,4 +61,56 @@ func ParseTestCase(path string) (result TestCase, err error) {
 		Moves:            moves,
 		InitialPositions: initialPositions,
 	}, nil
+}
+
+func StringifyBoard(board [][]string) string {
+
+	row := len(board)
+	col := len(board[0])
+
+	var buffer bytes.Buffer
+
+	for i := 0; i < col; i++ {
+		if i == 0 {
+			buffer.WriteString("   ")
+		}
+		colLetter := (string)(i + 'a')
+		buffer.WriteString(" " + colLetter + "  ")
+	}
+	buffer.WriteString("\n")
+
+	for i := row - 1; i >= 0; i-- {
+		buffer.WriteString(strconv.Itoa(i + 1))
+		buffer.WriteString(" |")
+
+		for j := 0; j < col; j++ {
+			buffer.WriteString(stringifySquare(board[len(board)-i-1][j]))
+		}
+
+		buffer.WriteString(" " + strconv.Itoa(i+1))
+		buffer.WriteString("\n")
+
+		if i != 0 {
+			buffer.WriteString("\n")
+		}
+	}
+
+	for i := 0; i < col; i++ {
+		if i == 0 {
+			buffer.WriteString("   ")
+		}
+		colLetter := (string)(i + 'a')
+		buffer.WriteString(" " + colLetter + "  ")
+	}
+	buffer.WriteString("\n")
+
+	return buffer.String()
+}
+
+func stringifySquare(sq string) string {
+	if len(sq) == 0 {
+		return " _ |"
+	}
+
+	return " " + sq + " |"
 }

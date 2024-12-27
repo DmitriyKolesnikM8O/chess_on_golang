@@ -32,6 +32,14 @@ func (game *ChessGame) SetupBoard(path string) utils.TestCase {
 	return testCase
 }
 
+func (game ChessGame) PrintGameStatus() {
+	fmt.Println(game.board.String())
+}
+
 func (game *ChessGame) Start() {
 	game.SetupBoard(InitialBoard)
+
+	game.PrintGameStatus()
+
+	//TODO
 }
