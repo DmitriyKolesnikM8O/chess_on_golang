@@ -2,23 +2,27 @@ package board
 
 const (
 	boardSize = 8
-	WhiteKing = "\u2654"
-	BlackKing = "\u265A"
+	BlackKing = "\u2654"
+	WhiteKing = "\u265A"
 
-	WhiteQueen = "\u2655"
-	BlackQueen = "\u265B"
+	BlackQueen = "\u2655"
+	WhiteQueen = "\u265B"
 
-	WhiteRook = "\u2656"
-	BlackRook = "\u265C"
+	BlackRook = "\u2656"
+	WhiteRook = "\u265C"
 
-	WhiteBishop = "\u2657"
-	BlackBishop = "\u265D"
+	BlackBishop = "\u2657"
+	WhiteBishop = "\u265D"
 
-	WhiteKnight = "\u2658"
-	BlackKnight = "\u265E"
+	BlackKnight = "\u2658"
+	WhiteKnight = "\u265E"
 
-	WhitePawn = "\u2659"
-	BlackPawn = "\u265F"
+	BlackPawn = "\u2659"
+	WhitePawn = "\u265F"
+
+	illegalMoveMessage        = "Illegal move! Please enter again."
+	causingSelfInCheckMessage = "This move will cause yourself in check! Please enter again."
+	MovesLimitCount           = 400
 )
 
 type Board struct {
